@@ -18,6 +18,7 @@ export default function NewTask({ onAdd }) {
   return (
     <div className="flex items-center gap-4">
       <input
+        placeholder="Entre com uma task"
         className=" w-64 px-2 py-1 rounded-sm bg-stone-200"
         type="text"
         onChange={handleChange}
