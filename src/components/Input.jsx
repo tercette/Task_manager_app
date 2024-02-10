@@ -1,11 +1,8 @@
-import React, { forwardRef, ForwardedRef, HTMLAttributes, Ref } from "react";
+import React, { forwardRef } from "react";
 
-interface InputProps extends HTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
-  label?: string;
-  textarea?: boolean;
-}
 
-const Input = forwardRef(function Input({ label, textarea, ...props }: InputProps, ref: Ref<HTMLTextAreaElement>) {
+
+const Input = forwardRef(function Input({ label, textarea, ...props }, ref) {
   const classes =
     "w-full p-1 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600";
   return (
@@ -16,7 +13,7 @@ const Input = forwardRef(function Input({ label, textarea, ...props }: InputProp
       {textarea ? (
         <textarea className={classes} ref={ref} {...props} />
       ) : (
-        <input className={classes} ref={ref as Ref<HTMLInputElement>} {...props} />
+        <input className={classes} ref={ref} {...props} />
       )}
     </p>
   );
