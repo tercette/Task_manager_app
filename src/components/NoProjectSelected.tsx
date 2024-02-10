@@ -1,12 +1,11 @@
 import React from "react";
-import noProjectsImage from "../assets/no-projects.png";
 import Button from "./Button";
-
+import pic from '../assets/no-projects.png'
 export default function NoProjectedSelected({onStartAddProject}) {
   return (
     <div className="mt-24 text-center w-2/3">
       <img
-        src={noProjectsImage}
+        src={pic}
         alt="An empty task list"
         className="w-16 h-16 object-contain mx-auto"
       />
