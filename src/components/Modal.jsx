@@ -1,19 +1,26 @@
-import React, { useEffect } from "react";
+import { forwardRef, useImperativeHandle, useRef } from "react";
 import { createPortal } from "react-dom";
 
-export default function Modal({ children }) {
-  useEffect(() => {
-    const modalRoot = document.getElementById("modal-root");
-    const dialog = document.createElement("dialog");
-    modalRoot.appendChild(dialog);
+const Modal = forwardRef(function Modal({ children, buttonCaption }, ref) {
+  const dialog = useRef();
 
-    return () => {
-      modalRoot.removeChild(dialog);
+  useImperativeHandle(ref, () => {
+    return {
+      open() {
+        dialog.current.showModal();
+      },
     };
-  }, []);
+  });
 
   return createPortal(
-    <dialog open>{children}</dialog>,
+    <dialog ref={dialog}>
+      {children}
+      <form method="dialog">
+        <button>{buttonCaption}</button>
+      </form>
+    </dialog>,
     document.getElementById("modal-root")
   );
-}
+});
+
+export default Modal;
