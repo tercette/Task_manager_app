@@ -2,7 +2,7 @@ import React from "react";
 import noProjectsImage from "../assets/no-projects.png";
 import Button from "./Button";
 
-export default function NoProjectedSelected() {
+export default function NoProjectedSelected({onStartAddProject}) {
   return (
     <div className="mt-24 text-center w-2/3">
       <img
@@ -17,7 +17,7 @@ export default function NoProjectedSelected() {
         Select a pproject or get started with A new one
       </p>
       <p className="mt-8">
-        <Button>create new projects</Button>
+        <Button onClick={ onStartAddProject } >create new projects</Button>
       </p>
     </div>
   );
