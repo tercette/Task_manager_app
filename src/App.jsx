@@ -13,7 +13,7 @@ function App() {
     setProjectsState((prevState) => {
       return {
         ...prevState,
-        selectedprojectId: null,
+        selectedProjectId: null,
       };
     });
   }
@@ -22,7 +22,7 @@ function App() {
     setProjectsState((prevState) => {
       return {
         ...prevState,
-        selectedprojectId: undefined,
+        selectedProjectId: undefined,
       };
     });
   }
@@ -37,16 +37,16 @@ function App() {
 
       return {
         ...prevState,
-        selectedprojectId: undefined,
+        selectedProjectId: undefined,
         projects: [...prevState.projects, newProject],
       };
     });
   }
 
   let content;
-  if (projectsState.selectedprojectId === null) {
+  if (projectsState.selectedProjectId === null) {
     content = <NewProject onAdd={handleAddProject} onCancel={handleCancelAddProject} />;
-  } else if (projectsState.selectedprojectId === undefined) {
+  } else if (projectsState.selectedProjectId === undefined) {
     content = <NoProjectSelected onStartAddProject={handleStartAddProject} />;
   }
 
