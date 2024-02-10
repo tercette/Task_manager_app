@@ -1,3 +1,5 @@
+import Tasks from "./Tasks";
+
 export default function SelectedProject({ project, onDelete }) {
 	const formatDate = (dateString) => {
 		const options = { year: 'numeric', month: 'short', day: 'numeric' };
@@ -21,7 +23,7 @@ export default function SelectedProject({ project, onDelete }) {
           {project.description}{" "}
         </p>
       </header>
-      TASKS
+      <Tasks />
     </div>
   );
 }
